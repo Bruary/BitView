@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D17F5CA27806D8B005333AB /* currencyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D17F5C927806D8B005333AB /* currencyRow.swift */; };
+		4D17F5CC27807701005333AB /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D17F5CB27807701005333AB /* Currencies.swift */; };
+		4D4B72A527790A8C004A161A /* InvestmentPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4B72A427790A8C004A161A /* InvestmentPopUp.swift */; };
+		4D4B72A8277E1923004A161A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4D4B72A7277E1923004A161A /* Alamofire */; };
+		4D4B72AB277F0CD5004A161A /* CoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4B72AA277F0CD5004A161A /* CoreAPI.swift */; };
+		4D8585962780885100AC94E9 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8585952780885100AC94E9 /* Accounts.swift */; };
+		4D85859827808BEC00AC94E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85859727808BEC00AC94E9 /* User.swift */; };
+		4D85859A278097D700AC94E9 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D858599278097D700AC94E9 /* Calculations.swift */; };
+		4D85859C2780AAA400AC94E9 /* InvestmentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85859B2780AAA400AC94E9 /* InvestmentPage.swift */; };
 		4D8AD3AB2777497100024D66 /* BitViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AD3AA2777497100024D66 /* BitViewApp.swift */; };
 		4D8AD3AD2777497100024D66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8AD3AC2777497100024D66 /* ContentView.swift */; };
 		4D8AD3AF2777497100024D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8AD3AE2777497100024D66 /* Assets.xcassets */; };
@@ -14,6 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D17F5C927806D8B005333AB /* currencyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currencyRow.swift; sourceTree = "<group>"; };
+		4D17F5CB27807701005333AB /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		4D4B72A427790A8C004A161A /* InvestmentPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentPopUp.swift; sourceTree = "<group>"; };
+		4D4B72AA277F0CD5004A161A /* CoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAPI.swift; sourceTree = "<group>"; };
+		4D8585952780885100AC94E9 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		4D85859727808BEC00AC94E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4D858599278097D700AC94E9 /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
+		4D85859B2780AAA400AC94E9 /* InvestmentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentPage.swift; sourceTree = "<group>"; };
 		4D8AD3A72777497100024D66 /* BitView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8AD3AA2777497100024D66 /* BitViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitViewApp.swift; sourceTree = "<group>"; };
 		4D8AD3AC2777497100024D66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,12 +43,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4B72A8277E1923004A161A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D4B72A9277F0CB2004A161A /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				4D4B72AA277F0CD5004A161A /* CoreAPI.swift */,
+				4D17F5CB27807701005333AB /* Currencies.swift */,
+				4D8585952780885100AC94E9 /* Accounts.swift */,
+				4D85859727808BEC00AC94E9 /* User.swift */,
+				4D858599278097D700AC94E9 /* Calculations.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
 		4D8AD39E2777497100024D66 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +81,9 @@
 		4D8AD3A92777497100024D66 /* BitView */ = {
 			isa = PBXGroup;
 			children = (
-				4D8AD3AA2777497100024D66 /* BitViewApp.swift */,
-				4D8AD3AC2777497100024D66 /* ContentView.swift */,
+				4D4B72A9277F0CB2004A161A /* Backend */,
+				4DCA77A4277749F300979170 /* Views */,
+				4DCA77A3277749EB00979170 /* Screens */,
 				4D8AD3AE2777497100024D66 /* Assets.xcassets */,
 				4D8AD3B02777497100024D66 /* Preview Content */,
 			);
@@ -65,6 +96,25 @@
 				4D8AD3B12777497100024D66 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4DCA77A3277749EB00979170 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4D8AD3AA2777497100024D66 /* BitViewApp.swift */,
+				4D8AD3AC2777497100024D66 /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		4DCA77A4277749F300979170 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D4B72A427790A8C004A161A /* InvestmentPopUp.swift */,
+				4D17F5C927806D8B005333AB /* currencyRow.swift */,
+				4D85859B2780AAA400AC94E9 /* InvestmentPage.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +133,9 @@
 			dependencies = (
 			);
 			name = BitView;
+			packageProductDependencies = (
+				4D4B72A7277E1923004A161A /* Alamofire */,
+			);
 			productName = BitView;
 			productReference = 4D8AD3A72777497100024D66 /* BitView.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +164,9 @@
 				Base,
 			);
 			mainGroup = 4D8AD39E2777497100024D66;
+			packageReferences = (
+				4D4B72A6277E1923004A161A /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 4D8AD3A82777497100024D66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,7 +193,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D8585962780885100AC94E9 /* Accounts.swift in Sources */,
+				4D85859C2780AAA400AC94E9 /* InvestmentPage.swift in Sources */,
+				4D17F5CC27807701005333AB /* Currencies.swift in Sources */,
+				4D4B72AB277F0CD5004A161A /* CoreAPI.swift in Sources */,
+				4D17F5CA27806D8B005333AB /* currencyRow.swift in Sources */,
+				4D85859A278097D700AC94E9 /* Calculations.swift in Sources */,
+				4D85859827808BEC00AC94E9 /* User.swift in Sources */,
 				4D8AD3AD2777497100024D66 /* ContentView.swift in Sources */,
+				4D4B72A527790A8C004A161A /* InvestmentPopUp.swift in Sources */,
 				4D8AD3AB2777497100024D66 /* BitViewApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +405,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4D4B72A6277E1923004A161A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D4B72A7277E1923004A161A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D4B72A6277E1923004A161A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D8AD39F2777497100024D66 /* Project object */;
 }
