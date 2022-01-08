@@ -7,19 +7,12 @@
 
 import SwiftUI
 
-class InvestUtils {
-    let availableCurrencies: [Currency] = CurrenciesDetails
-    
-    var investment: investmentData = investmentData(currencyCode: "BTC", cryptoAmount: 0.0, totalAmount: 0.0, subTotalAmount: 0.0, fees: 0.0, marketPrice: 0.0, dateAdded: Date.now)
-    
-}
-
 struct InvestmentPage: View {
     
-    var investmentClass = InvestUtils()
+    var investmentModelLocal = investmentModel()
     
     @State private var screenWidth = UIScreen.main.bounds.width
-    @State private var selectedCurrency = CurrenciesDetails[0].nameShort
+    @State private var selectedCurrency = CurrenciesDetails[0].code
     
     @State var cryptoAmount:String = ""
     @State var marketPrice: String = ""
@@ -49,24 +42,24 @@ struct InvestmentPage: View {
                 }//: HStack
                 .padding(.bottom,50)
                 
-                Section{
+                Group {
                     
                     Text("Currency")
                         .fontWeight(.bold)
                         .font(.system(size: 20))
                     
                     Picker("Currency", selection: $selectedCurrency) {
-                        Text("BTC").tag(CurrenciesDetails[0].nameShort)
-                        Text("ETH").tag(CurrenciesDetails[1].nameShort)
-                        Text("LTC").tag(CurrenciesDetails[2].nameShort)
-                        Text("XRP").tag(CurrenciesDetails[3].nameShort)
+                        Text("BTC").tag(CurrenciesDetails[0].code)
+                        Text("ETH").tag(CurrenciesDetails[1].code)
+                        Text("LTC").tag(CurrenciesDetails[2].code)
+                        Text("XRP").tag(CurrenciesDetails[3].code)
                     }
                     .pickerStyle(.segmented)
                     .padding()
                     
                 }
                 
-                Section{
+                Group {
                     
                     Text("Purchase Details")
                         .fontWeight(.bold)
@@ -135,7 +128,7 @@ struct InvestmentPage: View {
                         
                         Text("Total amount spent in USD: ")
                         
-                        Text(getTotalAmount(marketprice: self.marketPrice, cryptoAmount: self.cryptoAmount, fees: self.fees))
+                        Text(investmentModelLocal.getTotalAmount(marketprice: self.marketPrice, cryptoAmount: self.cryptoAmount, fees: self.fees))
                             .fontWeight(.semibold)
                             .textFieldStyle(.roundedBorder)
                             
@@ -151,15 +144,19 @@ struct InvestmentPage: View {
 
                 Button {
                     
-                    let vest: investmentData = addInvestment(marketPrice: self.marketPrice,
+                    let vest: investmentData = investmentModelLocal.addInvestment(
+                                  marketPrice: self.marketPrice,
                                   cryptoAmount: self.cryptoAmount,
                                   fees: self.fees,
-                                  investment: investmentClass.investment,
+                                  investment: investmentData(),
                                   currency: self.selectedCurrency)
-
-                    print(vest)
-
-                    dismiss()
+                    
+//
+//                    saveInvestment(investment: vest)
+//
+//                    print(vest)
+//
+//                    dismiss()
 
                 } label: {
                     ZStack{
@@ -181,47 +178,6 @@ struct InvestmentPage: View {
             
         }
     }
-}
-
-func getTotalAmount(marketprice a:String, cryptoAmount b:String, fees c:String) -> String {
-    if a != "" && b != "" && c != "" {
-        guard
-        let x = Double(a),
-        let y = Double(b),
-        let z = Double(c) else {
-            return "0.0"
-        }
-        
-        return String((x*y) + z)
-    }
-    
-    return "0.0"
-}
-
-func addInvestment(marketPrice a: String, cryptoAmount b:String, fees c: String, investment d: investmentData, currency e:String) -> investmentData {
-    if a != "" && b != "" && c != "" {
-        guard
-        let x = Double(a),
-        let y = Double(b),
-        let z = Double(c) else {
-            
-            return d
-        }
-        
-        var investmentMain = d
-        
-        investmentMain.marketPrice = x
-        investmentMain.cryptoAmount = y
-        investmentMain.fees = z
-        investmentMain.totalAmount = (x * y) + z
-        investmentMain.subTotalAmount = (x * y) - z
-        investmentMain.dateAdded = Date.now
-        investmentMain.currencyCode = e
-        
-        return investmentMain
-    }
-    
-    return d
 }
 
 struct InvestmentPage_Previews: PreviewProvider {

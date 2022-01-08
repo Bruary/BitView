@@ -10,6 +10,8 @@ import Alamofire
 
 struct ContentView: View {
     
+    @AppStorage("mainUser") var mainUser: Data = Data()
+    
     private var menuBarWidth = UIScreen.main.bounds.width
     
     var currencies : [Currency] = CurrenciesDetails
@@ -92,7 +94,7 @@ struct ContentView: View {
             
             // MARK: - CENTER
             Group {
-                ScrollView{
+                ScrollView {
                     
                     VStack {
                         

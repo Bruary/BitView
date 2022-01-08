@@ -22,14 +22,12 @@ struct currencyRow: View {
                 .frame(width: 30 , height: 30)
                 .padding(.trailing, 10)
                 
-                
-            
                 VStack(alignment: .leading, spacing: 5) {
                 
                 Text(currency.name)
                     .fontWeight(.semibold)
                     .font(.system(size: 14))
-                Text(currency.nameShort)
+                Text(currency.code)
                     .fontWeight(.light)
                     .font(.system(size: 12))
                 
